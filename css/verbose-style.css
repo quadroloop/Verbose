@@ -4,8 +4,21 @@ Main CSS File
 (c) Bryce Mercines 2017
 */
 
+#vbody {
+	/*background:linear-gradient(rgba(228, 235, 235, 0.94),rgba(133, 191, 239, 0.63),rgba(228, 235, 235, 0.94)),url(../img/) top center fixed;*/
+  background-color:#E2EAF2;
+	display: table;
+	width: 100%; 
+	height: 100vh;
+}
 
+ #query:focus {
+   box-shadow: 0 0 20px #20F8F8;
+ }
 
+ .legacy {
+ 	box-shadow: 0 0 20px #5bffff;
+ }
 
 
 .widget-focus i {
@@ -20,3 +33,153 @@ Main CSS File
 .window_widget  {-moz-transition: all 0.3s;-webkit-transition: all 0.3s;transition: all 0.3s;}
 .window_widget:hover  {-moz-transform: scale(1.1);-webkit-transform: scale(1.1);transform: scale(1.1);cursor:pointer;}
 
+.window1.frames.active {
+    border: 1px solid black !important;
+}
+.selected { background: red !important}
+
+#query {
+	border-radius:2px;width:450px;height:30px;margin-top:7px;
+}
+
+#sc1 {
+	/*seach container*/
+	display:none;
+    margin-top: 50px;
+    height:250px;
+    width:350px;
+    right:210;
+
+}
+
+#setmenu {
+	/*seach container*/
+	display:none;
+    margin-top: 50px;
+    height:450px;
+    width:350px;
+    right:140;
+
+}
+
+#sh1 {
+	/*seach container*/
+	display:none;
+    margin-top: 50px;
+    height:450px;
+    width:350px;
+    right:80;
+
+}
+
+#sf1 {
+	/*seach container*/
+	display:none;
+    margin-top: 50px;
+    height:450px;
+    width:350px;
+    right:20;
+   
+}
+
+
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 45px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #fff;
+}
+
+
+#banner {
+	background-color:rgba(0, 0, 0, 0.7);margin-top:150px;width:700px;border-radius:10px;/*margin-left:350px;*/
+}
+
+.feed {
+	background-color:white;margin-top:150px;width:700px;border-radius:10px;margin-left:350px;
+}
+
+.widget i {-moz-transition: all 0.3s;-webkit-transition: all 0.3s;transition: all 0.3s;}.widget:hover i {-moz-transform: scale(1.1);-webkit-transform: scale(1.1);transform: scale(1.1);background-color:rgba(94, 165, 237, 0.7);color:white;cursor:pointer;}i{color:white;}
+.circle{padding: 5px 10px;display: inline-block;-moz-border-radius: 100px;-webkit-border-radius: 100px;border-radius: 100px;-moz-box-shadow: 0px 0px 2px #fff;-webkit-box-shadow: 0px 0px 2px #fff;box-shadow: 0px 0px 2px #fff;}
+       
+
+ /*search feed*/
+ .sfeed {
+ 	margin-top:10px !important;
+ 	margin-left:310px !important;
+ 	margin-bottom:10px !important; 
+ }
+
+#smode {
+  font-weight: 100;
+  margin-top:5px;	
+}
+
+#ssource {
+  font-weight: 100;
+  margin-top:5px;	
+}
+
+.leftbar {
+  position: fixed;
+  margin-left: 20px;
+  width:275px;
+  height:350px;
+}
+
+.rightbar {
+  position: fixed;
+  right: 20;
+  width:235px;
+}
+
+/* for w3 theme.css */
+
+.w3-theme-l5 {color:#000 !important; background-color:#f5f7f8 !important}
+.w3-theme-l4 {color:#000 !important; background-color:#dfe5e8 !important}
+.w3-theme-l3 {color:#000 !important; background-color:#becbd2 !important}
+.w3-theme-l2 {color:#000 !important; background-color:#9eb1bb !important}
+.w3-theme-l1 {color:#fff !important; background-color:#7d97a5 !important}
+.w3-theme-d1 {color:#fff !important; background-color:#57707d !important}
+.w3-theme-d2 {color:#fff !important; background-color:#4d636f !important}
+.w3-theme-d3 {color:#fff !important; background-color:#435761 !important}
+.w3-theme-d4 {color:#fff !important; background-color:#3a4b53 !important}
+.w3-theme-d5 {color:#fff !important; background-color:#303e45 !important}
+
+.w3-theme-light {color:#000 !important; background-color:#f5f7f8 !important}
+.w3-theme-dark {color:#fff !important; background-color:#303e45 !important}
+.w3-theme-action {color:#fff !important; background-color:#303e45 !important}
+
+.w3-theme {color:#fff !important; background-color:#607d8b !important}
+.w3-text-theme {color:#607d8b !important}
+.w3-border-theme {border-color:#607d8b !important}
+
+.w3-hover-theme:hover {color:#fff !important; background-color:#607d8b !important}
+.w3-hover-text-theme:hover {color:#607d8b !important}
+.w3-hover-border-theme:hover {border-color:#607d8b !important}
+
+
+.link {
+  cursor: pointer;
+}
+
+
+.menu{z-index:3;display:none;position:fixed;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.4)}
+
+.loadbanner {
+  margin-top:150px;
+  font-size:60px;
+}
+
+.subb {
+  font-weight: 100;
+}
+
+.banner-tag {
+  margin-top:20px;
+  width:60%;
+  border-radius:10px;
+}
