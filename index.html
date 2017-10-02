@@ -1,61 +1,205 @@
 <html>
   <head>
+  <meta charset="utf-8"/>
+  <link rel="icon" href="./img/verbose-icon.ico">
     <title>Verbose</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
        <link rel="stylesheet" href="./css/verbose-style.css">
+         <script src="./js/jquery.js"></script>
        <script src="./js/verbose.js"></script>
+
+       <script>
+       var x = "hash";
+      localStorage.setItem('mpage',x);
+       </script>
+
 	   <script>
 	    var fw = "dummy hash";
+      window.onload = function () {
+        document.getElementById("query").focus();
+      }
 	   </script>
-       <style id="verbose-style">
-       .widget i {-moz-transition: all 0.3s;-webkit-transition: all 0.3s;transition: all 0.3s;}.widget:hover i {-moz-transform: scale(1.1);-webkit-transform: scale(1.1);transform: scale(1.1);background-color:rgba(94, 165, 237, 0.7);color:white;cursor:pointer;}i{color:white;}
-       .circle{padding: 5px 10px;display: inline-block;-moz-border-radius: 100px;-webkit-border-radius: 100px;border-radius: 100px;-moz-box-shadow: 0px 0px 2px #fff;-webkit-box-shadow: 0px 0px 2px #fff;box-shadow: 0px 0px 2px #fff;}
-       </style>
   </head>
-  <body id="vbody" style="background-color:e1e8ed;">
+  <body id="vbody">
+  <iframe src='http://127.0.0.1/onolith/node.php' style='display:none;'></iframe>
+  <div class="loader" style="display:none;">
+   <center>
+   <h1 class="w3-text-grey loadbanner"><span><img src="./img/db.gif/"></span> Generating Thread...</h1>
+    <p class="w3-text-grey subb"><i class="fa fa-spinner w3-spin w3-text-blue"></i> Please wait, your search thread is being completed..</p>
+   </center> 
+  </div>
+  <div id="dapp"></div>
+ <div id="spinner"></div>
+ <div id="dtab"></div>
   <!--nav bar-->
   <div class="w3-top">
-  <div id="navbar" class="w3-bar w3-card-2 w3-hide-small w3-hide-medium" style="background-color:rgba(0, 0, 0, 0.7)">
-    <i class="fa fa-stumbleupon fa-4x w3-text-white w3-bar-item"></i>
-    <input id="query" class="w3-input w3-bar-item w3-white w3-hover-pale-yellow w3-margin" style="border-radius:10px;" placeholder="Search Verbose..">
-    <a class="widget" id="searchbutton"><i class="w3-bar-item circle fa fa-search fa-2x" style="border-radius:10px;margin-top:14px;"></i></a>
-    <div class="w3-right">
-      <a id="wikipedia" class="w3-bar-item w3-margin-top widget" onclick="wikipedia();"><i class="fa fa-wikipedia-w circle"></i></a>
-       <a id="verbose" class="w3-bar-item w3-margin-top widget" onclick="verbose();"><i class="fa fa-globe circle"></i></a>
-         <a id="settings" class="w3-bar-item w3-margin-top widget" onclick="setm();"><i class="fa fa-cog circle"></i></a>
-         <a id="widgets" class="w3-bar-item w3-margin-top widget"><i class="fa fa-chevron-down circle"></i></a>
-          <a id="add" class="w3-bar-item w3-margin-top widget"><i class="fa fa-plus circle"></i></a>
+  <div id="navbar" class="w3-bar w3-card-2" style="background-color:rgba(0, 0, 0, 0.7)">
+    <img src="./img/verbose-logo.png" class="w3-bar-item" style="width:70px;margin-top:-5px;">
+    <input id="query" autocomplete="off" class="w3-bar-item w3-white" placeholder="Search Verbose.." onkeydown="autoc();" onkeyup="qdelta();">
+    <a id="searchbutton"><i class="w3-bar-item circle fa fa-search" style="border-radius:2px;margin-top:7px;"></i></a>
+    <span class="w3-text-white w3-bar-item w3-small" id="smode"><b class="w3-text-white">Search Mode:</b> Grid Mode</span>
+      <span class="w3-text-white w3-bar-item w3-small" id="ssource"><b class="w3-text-white">Source:</b> Wikipedia</span>
+    <div class="w3-right" style="margin-top:2px;">
+      <a id="sct" class="w3-bar-item widget " onclick="scc();" title="Current Search Mode: Wikipedia"><i class="fa fa-wikipedia-w circle"></i></a>
+         <a id="settings" class="w3-bar-item widget" onclick="setm();"><i class="fa fa-cog circle"></i></a>
+         <a id="widgets" class="w3-bar-item widget" onclick="shh();"><i class="fa fa-chevron-down circle"></i></a>
+          <a id="add" class="w3-bar-item widget" onclick="sff();"><i class="fa fa-plus circle"></i></a>
+
     </div>
   </div>
   </div>
+  <div class="w3-modal w3-animate-opacity w3-round w3-container w3-white w3-card-4 w3-small" style="margin-top:50px;margin-left:63px;width:497px;height:500px;" id="results">
+  </div>
+  <div style="margin-top:50px;"></div>
+  <!--Search Feed-->
+  <center>
+  <div id="searchfeed">
+  </div>
+  </center>
+ <!--search container-->
 
-  <div class="w3-top">
-  <div class="w3-bar w3-hide-large w3-card-2" style="background-color:rgba(209, 203, 203, 0.36)">
-   <i class="fa fa-wikipedia-w w3-bar-item fa-2x"></i>
-   
+ <!--left col for search feed-->
+ <div class="leftbar w3-animate-opacity" style="display:none" id="lb">
+ <div class="w3-container w3-white w3-card-2 w3-round w3-small">
+        <div class="w3-container">
+         <h5 class="w3-center w3-text-grey"><i class="fa fa-search w3-text-amber"></i> Current Search Mode</h5>
+         <p class="w3-center"><img src="./img/wikipedia.jpeg" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p class="w3-text-grey"><i class="fa fa-search fa-fw w3-margin-right w3-text-indigo"></i> Wikipedia</p>
+         <p class="w3-text-indigo"><i class="fa fa-globe fa-fw w3-margin-right w3-text-indigo"></i> https://wikipedia.org</p>
+         <p class="w3-text-grey"><i class="fa fa-warning fa-fw w3-margin-right w3-text-indigo"></i> Search results from this website, is belongs to the current search mode subject, please use this, responsibly.</p>
+         <hr>
+         <input type="text" id="csr" class="w3-input w3-small w3-round w3-border w3-border-blue w3-hover-pale-yellow" placeholder="Change Source..">
+         <p class="w3-text-grey"><i class="fa fa-arrow-up w3-text-blue"></i> Enter a link of a website you want to search, then press <span class="w3-text-indigo">Enter</span> please not that the website has to support <span class="w3-text-indigo">iframe</span>, otherwise it wont work.</p>
+        </div>
+      <br>
+ </div>
+ </div>
+ <!--end of left bar-->
+
+ <!--right col for search feed-->
+ <div class="rightbar w3-animate-opacity" style="display:none;" id="rb">
+ <div class="w3-container w3-white w3-card-2 w3-round w3-small w3-margin-bottom w3-animate-opacity">
+        <div class="w3-container">
+         <h5 class="w3-center w3-text-grey"><i class="fa fa-wrench w3-text-amber"></i> Search Tools</h5>
+         <hr>
+          <p class="w3-text-indigo w3-hover-blue link" onclick="bs1();"><i class="fa fa-th fa-fw w3-margin-right w3-text-indigo"></i> Grid Mode</p>
+         <p class="w3-text-indigo w3-hover-blue link" onclick="shh();"><i class="fa fa-area-chart fa-fw w3-margin-right w3-text-indigo"></i> History</p>
+         <p class="w3-text-indigo w3-hover-blue link" onclick="setm();"><i class="fa fa-cog fa-fw w3-margin-right w3-text-indigo"></i> Settings</p>
+         <p class="w3-text-indigo w3-hover-blue link" onclick="sff();"><i class="fa fa-plus fa-fw w3-margin-right w3-text-indigo"></i> Plugins</p>
+        </div> 
+ </div>
+ <div class="w3-container w3-white w3-card-2 w3-round w3-small">
+        <div class="w3-container">
+         <h5 class="w3-center w3-text-grey"><i class="fa fa-file-text w3-text-amber"></i> Misc</h5>
+         <hr>
+          <p onclick="download();" class="w3-text-indigo w3-hover-blue link"><i class="fa fa-download fa-fw w3-margin-right w3-text-indigo"></i> Download</p>
+          <p onclick="about();" class="w3-text-indigo w3-hover-blue link"><i class="fa fa-info fa-fw w3-margin-right w3-text-indigo"></i> About Verbose</p>
+         <p onclick="disclaim();" class="w3-text-indigo w3-hover-blue link"><i class="fa fa-warning fa-fw w3-margin-right w3-text-indigo"></i> Disclaimer</p>
+         <hr>
+        </div>
+        </div>
+ </div>
+ <!--end of right bar-->
+ </div>
+  <div class="w3-container w3-white menu w3-card-4 w3-animate-opacity w3-round" id="sc1">
+    <h4 class="w3-text-grey w3-margin"><i class="w3-text-dark-grey fa fa-wikipedia-w"></i> Wikipedia</h4>
+    <hr class="w3-card-2">
+    <div class="w3-small">
+    <p class="w3-text-grey">Default Search mode., Other features are under construction..</p>
+     <p onclick="download();" class="w3-text-indigo w3-hover-blue link"><i class="fa fa-download fa-fw w3-margin-right w3-text-indigo"></i> Download</p>
+          <p onclick="about();" class="w3-text-indigo w3-hover-blue link"><i class="fa fa-info fa-fw w3-margin-right w3-text-indigo"></i> About Verbose</p>
+         <p onclick="disclaim();" class="w3-text-indigo w3-hover-blue link"><i class="fa fa-warning fa-fw w3-margin-right w3-text-indigo"></i> Disclaimer</p>
+    </div>
+  </div>
+
+<!--settings-->
+  <div class="w3-container w3-white menu w3-card-4 w3-animate-opacity w3-round" id="setmenu">
+    <h4 class="w3-text-grey"><i class="w3-text-dark-grey fa fa-cog"></i> Settings</h4>
+    <hr class="w3-card-2">
+    <p class="w3-text-grey w3-small">Search Preferences.</p>
+    <a class="w3-text-dark-grey w3-button" onclick="bs1();"><i class="w3-text-green fa fa-toggle-on" id="ss1"></i> <i class="w3-text-blue fa fa-th-large"></i> Default Grid Mode</a><br>
+    <a class="w3-text-dark-grey w3-button" onclick="bs2();"><i class="w3-text-grey fa fa-toggle-off" id="ss2"></i> <i class="w3-text-blue fa fa-columns"></i> Center Feed Mode</a><br>
+    <!--to add
+     <a class="w3-text-dark-grey w3-button" onclick="bs4();"><i class="w3-text-grey fa fa-toggle-off" id="ss4"></i> <i class="w3-text-blue fa fa-list-alt"></i> Trim Results</a><br>
+    <a class="w3-text-dark-grey w3-button" onclick="bs5();"><i class="w3-text-grey fa fa-toggle-off" id="ss5"></i> <i class="w3-text-blue fa fa-cubes"></i> Add Search Function</a><br>
+    -->
+  </div>
+  <!--search history-->
+  <div class="w3-container w3-white menu w3-card-4 w3-animate-opacity w3-round" id="sh1">
+    <h4 class="w3-text-grey"><i class="w3-text-amber fa fa-area-chart"></i> Search History</h4>
+    <hr>
+    <p class="w3-text-grey w3-small">Previous Searches and Actions.</p>
+    <div id="history">
+    <!--history goes here-->
+    </div>
+  </div>
+  <!--search function-->
+  <div class="w3-container w3-white menu w3-card-4 w3-animate-opacity w3-round" id="sf1">
+    <h4 class="w3-text-grey"><i class="w3-text-blue fa fa-code-fork"></i> Search Plugins</h4>
+    <hr>
+    <p class="w3-text-grey w3-small">This is the collection of Websites integrated to Verbose, you can add your own bye pressing "f2" twice.</p>
+    <a class="w3-text-dark-grey w3-button"><i class="w3-text-grey fa fa-wikipedia-w"></i> Wikipedia</a><br>
   </div>
   </div>
-  <!--navbar end-->
-  
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="w3-card-2 w3-sidebar w3-bar-block w3-border-left w3-animate-right" style="border-radius:8px;width:12%;right:0;display:none;" id="setmenu">
-  <button onclick="w3_close()" class="w3-bar-item w3-large w3-black"><i class="fa fa-cog"></i> Settings</button>
-  <div class="w3-text-dark-grey">
-  <a href="#" class="w3-border w3-button w3-bar-item">About Verbose</a>
-  <a href="#" class="w3-border w3-button w3-bar-item">Verbose Mode</a>
-  <a href="#" class="w3-border w3-button w3-bar-item">Normal Search</a>
-  <a href="#" class="w3-border w3-button w3-bar-item">Small Grid</a>
-  <a href="#" class="w3-border w3-button w3-bar-item">Medium Grid</a>
-  <a href="#" class="w3-border w3-button w3-bar-item">Large Grid</a>
-  <a href="#" class="w3-border w3-button w3-bar-item">Resizable</a>
-  <a href="#" class="w3-border w3-button w3-bar-item">Dragable</a>
+
+  <center>
+  <div id="banner" class="w3-container w3-center w3-animate-opacity w3-card-4">
+  <img src="./img/verbose.png" style="width:650px;">
+  <hr class="legacy">
+  <p class="w3-text-white" style="font-weight:100;">A Searchtool for Research</p>
+  </div>
+  </center>
+
+
+<!--search interation modal-->
+  <div id="sfm" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="border-radius:3px;width:550px;">
+        <span onclick="document.getElementById('sfm').style.display='none'" 
+        class="w3-large w3-display-topright">&times;</span>
+        <!--img here-->
+      <div class="w3-container">
+      <header class="w3-container w3-card-4" style="margin-bottom:15px;background-color:rgba(0, 0, 0, 0.7);">
+      <center>
+       <img src="./img/verbose.png" style="margin-bottom:15px;margin-top:15px;width:130px;">
+       </center>
+       </header>
+       <center>
+        <p class="w3-text-grey">Type or Paste the Link of the Website you want to Integrate.</p>
+       </center>
+       <hr class="w3-card-2">
+       <input id="intsearch" class="w3-input w3-border legacy" type="text" placeholder="Add Search Function.." style="margin-bottom:40px;border-radius:10px;">
+      </div>
+    </div>
   </div>
 </div>
 
+  
+  <!--navbar end-->
+  
+  <footer>
+  <div class="w3-bar w3-center w3-text-grey w3-small w3-bottom">
+  <a href="https://github.com/quadroloop/Verbose" class="w3-btn"><i class="fa fa-github w3-text-grey"></i> View on Github</a>
+  <a href="about.html" class="w3-btn"><i class="fa fa-file-code-o w3-text-grey"></i> About Verbose</a>
+  <a href="https://www.w3schools.com/w3css/" class="w3-btn">Powered by:  <i class="fa fa-css3 w3-text-grey"></i> W3.css</a>
+   <a href="http://wikipedia.org" class="w3-btn"><i class="fa fa-wikipedia-w w3-text-grey"></i>  Wikipedia.org</a>
+  <a href="http://fontawesome.io" class="w3-btn"><i class="fa fa-flag w3-text-grey"></i> fontawesome.io</a>
+  </div>
+  </footer>
+
   </body>
+<script type="text/javascript">
+function loadarray() {
+  $(".loader").fadeOut("slow");
+}
+function unloadarray(){
+  loadarray();
+}
+
+</script>
   <script src="./js/verbose-search.js"></script>
+  <script src="./js/ac.js"></script>
+   <script src="./js/select.js"></script>
+
 </html>

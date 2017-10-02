@@ -1,0 +1,59 @@
+<html>
+<head>
+<script src="./js/jquery.js"></script>
+<script>
+var x = localStorage.getItem("qball");
+function noresults() {
+  var content = document.getElementById("wiki").innerHTML;
+  var msg = document.getElementById("resbanner");
+  if ( content == [ ] ) {
+    msg.style.display = "block";
+    document.getElementById("qmsg").innerHTML = x;
+    resbanner.style.display = "block;"
+  }
+}
+</script>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+  $.getJSON('http://en.wikipedia.org/w/api.php?action=parse&page='+ x +'&prop=text&format=json&callback=?', function(json) {
+    $('#wiki').html(json.parse.text['*']);
+    $("#wiki").find("a:not(.references a)").attr("href", function(){ return "http://www.wikipedia.org" + $(this).attr("href");});
+    $("#wiki").find("a").attr("target", "_self");
+    //$("#wiki").find("a").attr("onclick", "localStorage.setItem('qball',this.innerHTML);location.reload();"); //test phase
+    $("#wiki").find("img").attr("src", function(){ return "https:" + $(this).attr("src");});
+   
+  });
+
+
+</script>
+</head>
+<body>
+<center>
+<div class="loader"></div>
+ <div id="spinner"></div>
+<div id="wiki"></div>
+<div id="resbanner" style="display:none;">
+<h1 class="w3-text-grey">Sorry, No results in Wikipedia for <b class="w3-text-indigo" id="qmsg"></b></h1>
+</div>
+</center>
+</body>
+<style type="text/css">
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('./img/db.gif') 50% 50% no-repeat #f7f7fc;
+}
+</style>
+<script type="text/javascript">
+$(window).load(function() {
+  $(".loader").fadeOut("slow");
+  noresults();
+})
+//loader@
+</script>
+</html>
