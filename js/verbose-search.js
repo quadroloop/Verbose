@@ -218,8 +218,8 @@ var str = document.getElementById("query").value;
     document.getElementById("history").innerHTML +=  "<a onclick='cquery=&apos;"+ query1 +"&apos;;csearch();' style='cursor:pointer;'  class='w3-text-dark-grey'><i class='w3-text-indigo fa fa-file-text-o'></i> "+ query1 +" <span class='w3-text-grey'>/"+smode+"/</span></a><br>";
    //create feed
    var div = document.createElement('div');
-   div.innerHTML = "<i onclick=document.getElementById(&apos;" + "fr" + uid + "&apos;).remove();cbanner();" + " class='fa fa-times-rectangle w3-padding-small w3-text-black w3-hover-text-red w3-right window_widget' title='Close this Window.'></i> <i onclick='fw = " + "&quot;fr" + uid + "&quot;" + "; edit();'" + " class='fa fa-pencil w3-text-black w3-hover-text-blue window_widget' title='Edit this Window.'></i> <span class='w3-small w3-text-dark-grey'><b class='w3-text-dark-grey'>Title:</b> </b>" +  searchquery.value +  "</b></span><iframe id='" + "fra" + uid + "' src='framer.html' style='margin:0px;height:420px;width:750px;border:0px;' onclick='close();'></iframe><i class='fa fa-close' stlye='cursor:default;'></i>"; 
-div.style = "width:770px;font-weight:100;";
+   div.innerHTML = "<i onclick=document.getElementById(&apos;" + "fr" + uid + "&apos;).remove();cbanner();" + " class='fa fa-times-rectangle w3-padding-small w3-text-black w3-hover-text-red w3-right window_widget' title='Close this Window.'></i> <i onclick='fw = " + "&quot;fr" + uid + "&quot;" + "; edit();'" + " class='fa fa-pencil w3-text-black w3-hover-text-blue window_widget' title='Edit this Window.'></i> <span class='w3-small w3-text-dark-grey'><b class='w3-text-dark-grey'>Title:</b> </b>" +  searchquery.value +  "</b></span><iframe id='" + "fra" + uid + "' src='framer.html' style='margin:0px;height:420px;width:100%;border:0px;' onclick='close();'></iframe><i class='fa fa-close' stlye='cursor:default;'></i>"; 
+div.style = "font-weight:100;margin-right:269px;";
 div.id = "fr" + uid;
 uid++
 div.setAttribute('class', 'w3-center sfeed w3-container w3-white w3-card-2 w3-round window frames'); 
@@ -239,8 +239,8 @@ function feedsearchclick(){
     document.getElementById("history").innerHTML +=  "<a onclick='cquery=&apos;"+ csearchquery +"&apos;;csearch();' style='cursor:pointer;'  class='w3-text-dark-grey'><i class='w3-text-indigo fa fa-file-text-o'></i> "+ csearchquery +" <span class='w3-text-grey'>/"+smode+"/</span></a><br>";
    //create feed
    var div = document.createElement('div');
-   div.innerHTML = "<i onclick=document.getElementById(&apos;" + "fr" + uid + "&apos;).remove();cbanner();" + " class='fa fa-times-rectangle w3-padding-small w3-text-black w3-hover-text-red w3-right window_widget' title='Close this Window.'></i> <i onclick='fw = " + "&quot;fr" + uid + "&quot;" + "; edit();'" + " class='fa fa-pencil w3-text-black w3-hover-text-blue window_widget' title='Edit this Window.'></i> <span class='w3-small w3-text-dark-grey'><b class='w3-text-dark-grey'>Title:</b> </b>" +  csearchquery +  "</b></span><iframe id='" + "fra" + uid + "' src='framer.html' style='margin:0px;height:420px;width:750px;border:0px;' onclick='close();'></iframe><i class='fa fa-close' stlye='cursor:default;'></i>"; 
-div.style = "width:770px;font-weight:100;";
+   div.innerHTML = "<i onclick=document.getElementById(&apos;" + "fr" + uid + "&apos;).remove();cbanner();" + " class='fa fa-times-rectangle w3-padding-small w3-text-black w3-hover-text-red w3-right window_widget' title='Close this Window.'></i> <i onclick='fw = " + "&quot;fr" + uid + "&quot;" + "; edit();'" + " class='fa fa-pencil w3-text-black w3-hover-text-blue window_widget' title='Edit this Window.'></i> <span class='w3-small w3-text-dark-grey'><b class='w3-text-dark-grey'>Title:</b> </b>" +  csearchquery +  "</b></span><iframe id='" + "fra" + uid + "' src='framer.html' style='margin:0px;height:420px;width:100%;border:0px;' onclick='close();'></iframe><i class='fa fa-close' stlye='cursor:default;'></i>"; 
+div.style = "font-weight:100;margin-right:269px;";
 div.id = "fr" + uid;
 uid++
 div.setAttribute('class', 'w3-center sfeed w3-container w3-white w3-card-2 w3-round window frames'); 
@@ -272,8 +272,8 @@ function feedsearcharray(){
     document.getElementById("history").innerHTML +=  "<a onclick='cquery=&apos;"+ query1 +"&apos;;csearch();' style='cursor:pointer;' class='w3-text-dark-grey'><i class='w3-text-indigo fa fa-file-text-o'></i> "+ query1 +" <span class='w3-text-grey'>/"+smode+"/</span></a><br>";
     //array search append.
     document.getElementById("results").style.display = "none"; // close auto complete   
-div.innerHTML = "<i onclick=document.getElementById(&apos;" + "fr" + uid + "&apos;).remove();cbanner();" + " class='fa fa-times-rectangle w3-padding-small w3-text-black w3-hover-text-red w3-right window_widget' title='Close this Window.'></i> <i onclick='fw = " + "&quot;fr" + uid + "&quot;" + "; edit();'" + " class='fa fa-pencil w3-text-black w3-hover-text-blue window_widget' title='Edit this Window.'></i> <span class='w3-small w3-text-dark-grey'><b class='w3-text-dark-grey'>Title:</b> </b>" +  str +  "</b></span><iframe onload='wcount();' id='" + "fra" + uid + "' src='https://www.wikipedia.org/wiki/"+str+"' style='margin:0px;height:420px;width:750px;border:0px;' onclick='close();'></iframe><i class='fa fa-close' stlye='cursor:default;'></i>"; 
-div.style = "width:770px;font-weight:100;";
+div.innerHTML = "<i onclick=document.getElementById(&apos;" + "fr" + uid + "&apos;).remove();cbanner();" + " class='fa fa-times-rectangle w3-padding-small w3-text-black w3-hover-text-red w3-right window_widget' title='Close this Window.'></i> <i onclick='fw = " + "&quot;fr" + uid + "&quot;" + "; edit();'" + " class='fa fa-pencil w3-text-black w3-hover-text-blue window_widget' title='Edit this Window.'></i> <span class='w3-small w3-text-dark-grey'><b class='w3-text-dark-grey'>Title:</b> </b>" +  str +  "</b></span><iframe onload='wcount();' id='" + "fra" + uid + "' src='https://www.wikipedia.org/wiki/"+str+"' style='margin:0px;height:420px;width:100%;border:0px;' onclick='close();'></iframe><i class='fa fa-close' stlye='cursor:default;'></i>"; 
+div.style = "font-weight:100;margin-right:269px;";
 div.id = "fr" + uid;
 uid++
 div.setAttribute('class', 'w3-center sfeed w3-container w3-white w3-card-2 w3-round window frames'); 
