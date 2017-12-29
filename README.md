@@ -5,7 +5,7 @@
 
 ### Demo
  video: https://www.youtube.com/watch?v=YXFFJ9GS-X0
- Website (hosted on Github Pages): https://quadroloop.github.io/Verbose
+ > Website (hosted on Github Pages): https://quadroloop.github.io/Verbose
 
 ### Features
  - Array search
