@@ -14,7 +14,7 @@ function noresults() {
 }
 </script>
 <meta charset="utf-8"/>
-<link rel="stylesheet" href="httpss://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script>
   $.getJSON('https://en.wikipedia.org/w/api.php?action=parse&page='+ x +'&prop=text&format=json&callback=?', function(json) {
     $('#wiki').html(json.parse.text['*']);
