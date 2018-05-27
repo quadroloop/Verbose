@@ -5,6 +5,7 @@
 
  window.onload = function(){
  	document.getElementById('search').focus();
+ 	$('#loader').fadeOut('slow');
  }
 
 function menu(object) {
@@ -85,6 +86,7 @@ function openSidebar(){
 }
 
 function closeSidebar(){
+	document.body.onclick = "closeSidebar();";
 	document.getElementById('sidebar').classList.add('hide-left');
  	setTimeout("document.getElementById('sidebar').style.display = 'none';",700);
  	setTimeout("document.getElementById('sidebar').classList.remove('hide-left')",700);

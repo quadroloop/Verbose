@@ -10,9 +10,20 @@
 <script src="./js/jquery.js"></script>
 </head>
 <body>
-   <div id="sidebar" class="animate-left w3-sidebar w3-bar-block">
+ <div id="loader">
+       <center>
+           <img src="./img/loader.gif">
+       </center>    
+   </div>
+   <div id="sidebar" class="animate-left w3-sidebar w3-bar-block" onclick="closeSidebar();">
       <h3 class="w3-margin"><i class="fa fa-bars"> Settings</i></h3>
-      <h4 class="w3-bar-item w3-hover-indigo" onclick="closeSidebar();"><i class="fa fa-window-close"></i> Close Sidebar</h4>
+        <a class="w3-bar-item w3-hover-indigo" onclick="location.href='disclaimer.html'"><i class="fa fa-hand-stop-o"></i> Search Mode: <span class="w3-text-aqua"> Snippets</span></a>
+        <a class="w3-bar-item w3-hover-indigo" onclick="location.href='disclaimer.html'"><i class="fa fa-line-chart"></i> View Search History</a>
+        <a class="w3-bar-item w3-hover-indigo" onclick="location.href='disclaimer.html'"><i class="fa fa-braille"></i> Change Source</a>
+      <a class="w3-bar-item w3-hover-indigo" href="https://github.com/quadroloop/Verbose" ><i class="fa fa-github"></i> View on Github</a>
+      <a class="w3-bar-item w3-hover-indigo" onclick="location.href='disclaimer.html'"><i class="fa fa-hand-stop-o"></i> Disclamer</a>
+      <a class="w3-bar-item w3-hover-indigo" onclick="location.href='about.html'"><i class="fa fa-info"></i> About</a>
+      <a class="w3-bar-item w3-hover-indigo" onclick="closeSidebar();"><i class="fa fa-window-close"></i> Close Sidebar</a>
    </div>
 
   <div class="galactic animated" onclick="readMode();" id="bg"></div> 
