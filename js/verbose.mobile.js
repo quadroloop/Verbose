@@ -15,7 +15,7 @@ function clickReset(object) {
 }
 
 var vcount = 0;
-function kernel(item) {
+function kernel(item) {	
   switch(item) {
   	case 'verbose' :
   	    toggle_widgets();
@@ -71,4 +71,17 @@ function toggle_widgets() {
            document.getElementById('preferences').classList.remove('bounceOut');
            document.getElementById('qr').classList.remove('bounceOut');
        }
+}
+
+function readMode() {
+	document.getElementById('bg').classList.add('fadeOut');
+}
+
+function searchMode() {
+	var data = document.getElementById('search');
+	    if(data.value){
+	          document.getElementById('bg').classList.add('fadeOut');
+	          document.getElementsByClassName('mobile-banner')[0].classList.add('fadeOutUp');
+	          document.getElementsByClassName('margin-input')[0].classList.add('fadesearch');
+	    }      
 }

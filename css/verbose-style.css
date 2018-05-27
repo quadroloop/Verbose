@@ -187,7 +187,7 @@ Main CSS File
 /*mobile css*/
 
 #search {
-  display: none;
+  display: block;
 }
 
 .icon {
@@ -299,6 +299,20 @@ Main CSS File
   animation-name: bounceReset;
 }
 
+.fadesearch {
+  animation-name: fadesearch;
+}
+
+@keyframes fadesearch {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, -450%, 0);
+  }
+}
 
 .galactic {
   height: 100%;
@@ -306,8 +320,11 @@ Main CSS File
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(255,255,255,0.5),rgba(255,255,255,255),rgba(255, 255, 255,255)), url('../img/galaxy.jpg') fixed center center;
   background-size: cover;
   position: absolute;
+  z-index: -1;
   transition: 2s;
 }
+
+
 
 .mobile-banner {
   margin-top: 80px;
