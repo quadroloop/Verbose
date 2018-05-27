@@ -1,6 +1,12 @@
 // Verbose mobile.js 
 // Bryce Mercines 2018
 
+ var searchcount = 0;
+
+ window.onload = function(){
+ 	document.getElementById('search').focus();
+ }
+
 function menu(object) {
 	var menubtn = object;
 	menubtn.className = "animated bounceReset"
@@ -82,6 +88,19 @@ function searchMode() {
 	    if(data.value){
 	          document.getElementById('bg').classList.add('fadeOut');
 	          document.getElementsByClassName('mobile-banner')[0].classList.add('fadeOutUp');
+	          document.getElementsByClassName('margin-input')[0].classList.remove('fadesearchdown');
 	          document.getElementsByClassName('margin-input')[0].classList.add('fadesearch');
+	    }else{
+	    	home();
 	    }      
+}
+
+function home() {
+	document.getElementById('bg').classList.remove('fadeOut');
+	document.getElementById('bg').classList.add('fadeIn');
+	document.getElementsByClassName('mobile-banner')[0].classList.remove('fadeOutUp');
+	document.getElementsByClassName('mobile-banner')[0].classList.add('fadeInDown');
+	document.getElementsByClassName('margin-input')[0].classList.remove('fadesearch');
+    document.getElementsByClassName('margin-input')[0].classList.add('fadesearchdown');
+
 }
