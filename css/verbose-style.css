@@ -183,3 +183,139 @@ Main CSS File
   width:60%;
   border-radius:10px;
 }
+
+/*mobile css*/
+
+#search {
+  display: none;
+}
+
+.icon {
+  width: 80px;
+}
+
+#verbose {
+    display: block; 
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    color: white; 
+    cursor: pointer; 
+    padding: 4px; 
+    border-radius: 10px; 
+    font-size: 18px; 
+}
+
+#sbar {
+    display: none; 
+    position: fixed; 
+    bottom: 105px; 
+    right: 17px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    color: white; 
+    cursor: pointer; 
+    padding: 10px; 
+    border-radius: 5px; 
+    font-size: 18px; 
+}
+
+#preferences {
+    display: none; 
+    position: fixed; 
+    bottom: 180px; 
+    right: 17px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    color: white; 
+    cursor: pointer; 
+    padding: 10px; 
+    border-radius: 5px; 
+    font-size: 18px; 
+}
+
+#qr {
+    display: none; 
+    position: fixed; 
+    bottom: 255px; 
+    right: 17px; 
+    z-index: 99; 
+    border: none;
+    outline: none; 
+    color: white; 
+    cursor: pointer; 
+    padding: 10px; 
+    border-radius: 5px; 
+    font-size: 18px; 
+}
+
+.icon-item {
+  background-color:rgba(0, 0, 0, 0.7);
+  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+  border-radius:5px;
+  padding: 10px;
+}
+
+
+@keyframes bounceReset {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceReset {
+  animation-name: bounceReset;
+}
+
+
+.galactic {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(255,255,255,0.5),rgba(255,255,255,255),rgba(255, 255, 255,255)), url('../img/galaxy.jpg') fixed center center;
+  background-size: cover;
+  position: absolute;
+  transition: 2s;
+}
+
+.mobile-banner {
+  margin-top: 80px;
+  max-width: 250px;
+}
+
+.margin-input {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

@@ -2,6 +2,10 @@
 // for Verbose v0.1
 // (c) Bryce Mercines 2017
 
+// move to mobile site
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    window.location = "m.verbose.html"; 
+}
 
 var search_state = "succent search mode";  
 
