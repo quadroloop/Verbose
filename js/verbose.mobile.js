@@ -28,6 +28,7 @@ function kernel(item) {
   	break;
   	case 'preferences' :
   	    toggle_widgets();
+  	    setTimeout('openSidebar();',400);
   	break;
   	case 'qr' :
   	    toggle_widgets();
@@ -79,6 +80,16 @@ function toggle_widgets() {
        }
 }
 
+function openSidebar(){
+	document.getElementById('sidebar').style.display = "block";
+}
+
+function closeSidebar(){
+	document.getElementById('sidebar').classList.add('hide-left');
+ 	setTimeout("document.getElementById('sidebar').style.display = 'none';",700);
+ 	setTimeout("document.getElementById('sidebar').classList.remove('hide-left')",700);
+}
+
 function readMode() {
 	document.getElementById('bg').classList.add('fadeOut');
 }
@@ -123,7 +134,7 @@ function home() {
           $("#results").empty();
           $("#results").append("<p>Results for <b class='w3-text-indigo'>" + q + "</b></p>");
           $.each(data.query.search, function(i,item){
-            $("#results").append("<div style='z-index:99;cursor:pointer;' onclick='cquery=&apos;" + encodeURIComponent(item.title) + "&apos;;csearch();'  class='w3-hover-pale-blue'><a class='w3-text-indigo' style='text-decoration:none;'><b>" + item.title + "</b></a><br>" + item.snippet + "<br><br></div>");
+            $("#results").append("<div style='cursor:pointer;' onclick='cquery=&apos;" + encodeURIComponent(item.title) + "&apos;;csearch();'  class='w3-hover-pale-blue w3-padding w3-round'><a class='w3-text-indigo' style='text-decoration:none;'><b>" + item.title + "</b></a><br>" + item.snippet + "<br><br></div>");
           });
         });
       });

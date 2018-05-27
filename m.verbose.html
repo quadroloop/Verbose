@@ -1,7 +1,8 @@
 <html>
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="icon" href="./img/verbose-icon.png">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 <link rel="stylesheet" href="./css/verbose-style.css">
 <link rel="stylesheet" href="./css/animate.css">
@@ -9,6 +10,11 @@
 <script src="./js/jquery.js"></script>
 </head>
 <body>
+   <div id="sidebar" class="animate-left w3-sidebar w3-bar-block">
+      <h3 class="w3-margin"><i class="fa fa-bars"> Settings</i></h3>
+      <h4 class="w3-bar-item w3-hover-indigo" onclick="closeSidebar();"><i class="fa fa-window-close"></i> Close Sidebar</h4>
+   </div>
+
   <div class="galactic animated" onclick="readMode();" id="bg"></div> 
       <div id="banner-holder">
            <center>
