@@ -330,6 +330,38 @@ Main CSS File
   }
 }
 
+.faderesults {
+  animation-name: faderesults;
+}
+
+@keyframes faderesults {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, -12%, 0);
+  }
+}
+
+.faderesultsdown {
+  animation-name: faderesultsdown;
+}
+
+@keyframes faderesultsdown {
+  from {
+    opacity: 1;
+    transform: translate3d(0, -12%, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
 .galactic {
   height: 100%;
   width: 100%;
@@ -349,6 +381,11 @@ Main CSS File
 
 .margin-input {
   margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#results {
   margin-left: 20px;
   margin-right: 20px;
 }

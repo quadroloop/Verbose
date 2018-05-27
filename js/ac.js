@@ -1,6 +1,4 @@
   $("#query").keyup(function(q){
-
-       
         var q = $("#query").val();
         $.getJSON("https://en.wikipedia.org/w/api.php?callback=?",
         {

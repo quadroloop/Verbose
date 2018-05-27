@@ -90,17 +90,41 @@ function searchMode() {
 	          document.getElementsByClassName('mobile-banner')[0].classList.add('fadeOutUp');
 	          document.getElementsByClassName('margin-input')[0].classList.remove('fadesearchdown');
 	          document.getElementsByClassName('margin-input')[0].classList.add('fadesearch');
+	          document.getElementById('results').classList.remove('faderesultsdown');
+	          document.getElementById('results').classList.add('faderesults');
 	    }else{
 	    	home();
 	    }      
 }
 
 function home() {
+	document.getElementById('results').innerHTML='';
 	document.getElementById('bg').classList.remove('fadeOut');
 	document.getElementById('bg').classList.add('fadeIn');
 	document.getElementsByClassName('mobile-banner')[0].classList.remove('fadeOutUp');
 	document.getElementsByClassName('mobile-banner')[0].classList.add('fadeInDown');
 	document.getElementsByClassName('margin-input')[0].classList.remove('fadesearch');
     document.getElementsByClassName('margin-input')[0].classList.add('fadesearchdown');
+    document.getElementById('results').classList.remove('faderesults');
+	document.getElementById('results').classList.add('fadesearchdown');
 
 }
+
+  $("#search").keyup(function(q){
+        var q = $("#search").val();
+        $.getJSON("https://en.wikipedia.org/w/api.php?callback=?",
+        {
+          srsearch: q,
+          action: "query",
+          list: "search",
+          format: "json"
+        },
+        function(data) {
+          $("#results").empty();
+          $("#results").append("<p>Results for <b class='w3-text-indigo'>" + q + "</b></p>");
+          $.each(data.query.search, function(i,item){
+            $("#results").append("<div style='z-index:99;cursor:pointer;' onclick='cquery=&apos;" + encodeURIComponent(item.title) + "&apos;;csearch();'  class='w3-hover-pale-blue'><a class='w3-text-indigo' style='text-decoration:none;'><b>" + item.title + "</b></a><br>" + item.snippet + "<br><br></div>");
+          });
+        });
+      });
+
