@@ -147,15 +147,31 @@ function home() {
         });
       });
 
-   function tester(){
-   	//  https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Stack%20Overflow
-    axios.get('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Stack%20Overflow')
-  .then(function (response) {
-    alert(response);
-  })
-  .catch(function (error) {
-    alert(error);
-  });
 
+  // var config = {
+  // 	headers: {
+  //     'Access-Control-Allow-Origin': '*',
+  //     'Content-Type': 'application/json',
+  //   },
+  // }
+
+   function tester(){
+   	
+     $.getJSON("https://en.wikipedia.org/w/api.php?callback=?",
+        {
+          // srsearch: "Google",
+          action: "query",
+          format: "json",
+          prop: "extracts",
+          explaintext: 1,
+          exintro: 1,
+          titles: "Google"
+          // list: "page"
+        },
+        function(data) {
+            var pageid = Object.keys(data.query.pages)[0];
+            alert(JSON.stringify(data.query.pages[pageid]));
+            // alert(pageid);
+        });
 
    }
