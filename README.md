@@ -3,6 +3,9 @@
 
 > Verbose is a JavasScript-Based Search tool, for Research! pulling content mostly from wikipedia it is bundled with search modes that allows students to search for content faster. Created Only for fun. never for profit.
 
+### New features
+> mobile support
+
 ### Demo
  video: https://www.youtube.com/watch?v=YXFFJ9GS-X0
  > Website (hosted on Github Pages): https://quadroloop.github.io/Verbose
@@ -16,7 +19,6 @@
 ### To Add:
  - DuckDuckGo Search API
  - Article Diffrence Processing
- - Mobile Browser Support
  - Definition Mode
 
 ### Search Modes (How to use search properly)

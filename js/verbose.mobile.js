@@ -1,7 +1,9 @@
 // Verbose mobile.js 
 // Bryce Mercines 2018
 
+ 
  var searchcount = 0;
+ var smode = 'snippets';
 
  window.onload = function(){
  	document.getElementById('search').focus();
@@ -148,12 +150,6 @@ function home() {
       });
 
 
-  // var config = {
-  // 	headers: {
-  //     'Access-Control-Allow-Origin': '*',
-  //     'Content-Type': 'application/json',
-  //   },
-  // }
 
    function tester(){
    	
@@ -175,3 +171,15 @@ function home() {
         });
 
    }
+
+function switchScr() {
+	document.getElementById("results").classList.add("w3-card-4");
+	document.getElementById("results").classList.add("hide-left");
+}
+
+
+// TODO:: [array search], enter mode, iframe mode, parallax mode , snippet
+
+function search(query,mode,) {
+
+}

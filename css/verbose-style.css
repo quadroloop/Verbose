@@ -365,7 +365,7 @@ Main CSS File
 .galactic {
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(255,255,255,0.5),rgba(255,255,255,255),rgba(255, 255, 255,255)), url('../img/galaxy.jpg') fixed center center;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(255,255,255,0.5),rgba(255,255,255,255),rgba(255, 255, 255,255)), url('http://s1.1zoom.me/big0/640/Milky_Way_Mountains_USA_465752.jpg') fixed center center;
   background-size: cover;
   position: absolute;
   z-index: -1;
