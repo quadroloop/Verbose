@@ -188,6 +188,7 @@ Main CSS File
 
 #search {
   display: block;
+  z-index: 99;
 }
 
 .icon {
@@ -199,7 +200,7 @@ Main CSS File
     position: fixed; 
     bottom: 10px; 
     right: 10px; 
-    z-index: 99; 
+    z-index: 99999; 
     border: none;
     outline: none; 
     color: white; 
@@ -362,6 +363,41 @@ Main CSS File
 }
 
 
+
+.fadepanel {
+  animation-name: fadepanel;
+}
+
+@keyframes fadepanel {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+/*    transform: translate3d(0, -100%, 0);
+*/    margin-top: 0px;
+  }
+}
+
+.hidepanel {
+  animation-name: hidepanel;
+}
+
+@keyframes hidepanel {
+  from {
+    opacity: 1;
+/*    transform: translate3d(0, -100%, 0);
+*/    margin-top: 0px;
+  }
+
+  to {
+    opacity: 1;
+    /*transform: translate3d(0, 0, 0);*/
+  }
+}
+
+
 .galactic {
   height: 100%;
   width: 100%;
@@ -370,6 +406,16 @@ Main CSS File
   position: absolute;
   z-index: -1;
   transition: 2s;
+}
+
+#panel {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(255,255,255,0.5),rgba(255,255,255,255),rgba(255, 255, 255,255)), url('http://s1.1zoom.me/big0/640/Milky_Way_Mountains_USA_465752.jpg') fixed center center;
+  background-size: cover;
+  position: fixed;
+  z-index: 2;
+  display: none;
 }
 
 
@@ -388,6 +434,7 @@ Main CSS File
 #results {
   margin-left: 20px;
   margin-right: 20px;
+  background-color: #fff !important;
 }
 
 #sidebar {
@@ -436,3 +483,8 @@ Main CSS File
 a {
   text-decoration: none;
 }
+
+#panel {
+  padding: 10px;
+}
+

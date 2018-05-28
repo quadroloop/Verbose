@@ -11,6 +11,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 </head>
 <body>
+ <div id="panel" class="animated"></div>
  <div id="loader">
        <center>
            <img src="./img/loader.gif">
@@ -26,7 +27,6 @@
       <a class="w3-bar-item w3-hover-indigo" onclick="location.href='about.html'"><i class="fa fa-info"></i> About</a>
       <a class="w3-bar-item w3-hover-indigo" onclick="closeSidebar();"><i class="fa fa-window-close"></i> Close Sidebar</a>
    </div>
-
   <div class="galactic animated" onclick="tester();;" id="bg"></div> 
       <div id="banner-holder">
            <center>
@@ -37,7 +37,7 @@
    <div class="margin-input animated">
        <input id="search" onkeyup="searchMode();" class="w3-input w3-border w3-round w3-card-2" placeholder="Search Verbose..">
    </div>
-   <div id="results" class="animated" onclick="switchScr();"></div>
+   <div id="results" class="animated w3-white" onclick="switchScr();"></div>
    <div class="w3-bottom">
        <a id="qr" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);" ><i class="fa fa-qrcode fa-2x icon-item"></i></a>
       <a id="preferences" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);" ><i class="fa fa-bars fa-2x icon-item"></i></a>

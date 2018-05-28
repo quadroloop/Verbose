@@ -4,6 +4,7 @@
  
  var searchcount = 0;
  var smode = 'snippets';
+ var cquery;
 
  window.onload = function(){
  	document.getElementById('search').focus();
@@ -111,8 +112,11 @@ function searchMode() {
 	          document.getElementsByClassName('mobile-banner')[0].classList.add('fadeOutUp');
 	          document.getElementsByClassName('margin-input')[0].classList.remove('fadesearchdown');
 	          document.getElementsByClassName('margin-input')[0].classList.add('fadesearch');
+	          document.getElementById('results').style.display = "block";
 	          document.getElementById('results').classList.remove('faderesultsdown');
 	          document.getElementById('results').classList.add('faderesults');
+	           document.getElementById('panel').classList.remove('hidepanel');
+	          document.getElementById('panel').classList.add('fadepanel');
 	    }else{
 	    	home();
 	    }      
@@ -127,7 +131,9 @@ function home() {
 	document.getElementsByClassName('margin-input')[0].classList.remove('fadesearch');
     document.getElementsByClassName('margin-input')[0].classList.add('fadesearchdown');
     document.getElementById('results').classList.remove('faderesults');
-	document.getElementById('results').classList.add('fadesearchdown');
+	document.getElementById('results').classList.add('faderesultsdown');
+	 document.getElementById('panel').classList.remove('fadepanel');
+	document.getElementById('panel').classList.add('hidepanel');
 
 }
 
@@ -144,7 +150,7 @@ function home() {
           $("#results").empty();
           $("#results").append("<p>Results for <b class='w3-text-indigo'>" + q + "</b></p>");
           $.each(data.query.search, function(i,item){
-            $("#results").append("<div style='cursor:pointer;' onclick='cquery=&apos;" + encodeURIComponent(item.title) + "&apos;;csearch();'  class='w3-hover-pale-blue w3-padding w3-round'><a class='w3-text-indigo' style='text-decoration:none;'><b>" + item.title + "</b></a><br>" + item.snippet + "<br><br></div>");
+            $("#results").append("<div style='cursor:pointer;' onclick='cquery=&apos;" + encodeURIComponent(item.title) + "&apos;;search(this.innerHTML);'  class='w3-hover-pale-blue w3-padding w3-round'><a class='w3-text-indigo' style='text-decoration:none;'><b>" + item.title + "</b></a><br>" + item.snippet + "<br><br></div>");
           });
         });
       });
@@ -175,11 +181,17 @@ function home() {
 function switchScr() {
 	document.getElementById("results").classList.add("w3-card-4");
 	document.getElementById("results").classList.add("hide-left");
+	setTimeout('document.getElementById("results").style.display="none"',300);
+	setTimeout('document.getElementById("results").classList.remove("w3-card-4");',700);
+	setTimeout('document.getElementById("results").classList.remove("hide-left");',700);
 }
 
 
 // TODO:: [array search], enter mode, iframe mode, parallax mode , snippet
 
-function search(query,mode,) {
-
+function search(data) {
+   var search_panel = document.getElementById('bg').style.display = "none";
+   var panel = document.getElementById("panel");
+   panel.style.display = "block";
+   panel.innerHTML += '<div class="w3-container w3-margin w3-round w3-card-2 w3-white">'+data+'</div>';
 }
