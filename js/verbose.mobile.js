@@ -10,15 +10,21 @@
 
 function menu(object) {
 	var menubtn = object;
-	menubtn.className = "animated bounceReset"
+	menubtn.classList.remove("bounceIn");
+	menubtn.classList.add("bounceReset");
 	kernel(menubtn.id);
-	menubtn.onclick="clickReset()";
+	menubtn.onclick=function() {
+		clickReset(this);
+	}
 }
 
 function clickReset(object) {
 	var menubtn = object;
-	menubtn.className = "animated bounceIn";
-	menubtn.onclick= "menu()";
+	menubtn.classList.remove("bounceReset");
+	menubtn.classList.add("bounceIn");
+	menubtn.onclick = function(){
+          menu(this);
+	}
 }
 
 var vcount = 0;
@@ -86,7 +92,6 @@ function openSidebar(){
 }
 
 function closeSidebar(){
-	document.body.onclick = "closeSidebar();";
 	document.getElementById('sidebar').classList.add('hide-left');
  	setTimeout("document.getElementById('sidebar').style.display = 'none';",700);
  	setTimeout("document.getElementById('sidebar').classList.remove('hide-left')",700);
