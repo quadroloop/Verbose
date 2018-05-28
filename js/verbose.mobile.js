@@ -38,6 +38,7 @@ function kernel(item) {
   	    setTimeout('openSidebar();',400);
   	break;
   	case 'qr' :
+  	   tester();
   	    toggle_widgets();
   	break;
   	case 'sbar' :
@@ -146,3 +147,15 @@ function home() {
         });
       });
 
+   function tester(){
+   	//  https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Stack%20Overflow
+    axios.get('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Stack%20Overflow')
+  .then(function (response) {
+    alert(response);
+  })
+  .catch(function (error) {
+    alert(error);
+  });
+
+
+   }
