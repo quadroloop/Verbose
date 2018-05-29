@@ -191,7 +191,9 @@ function backtosearch() {
   document.getElementById('panel').style.display = "none";
   document.getElementById('bg').style.display = "block";
   document.getElementById('search').value = '';
-  
+  document.getElementById('search').focus();
+   document.getElementById('search').click();
+
 
 }
 
