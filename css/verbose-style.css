@@ -486,5 +486,6 @@ a {
 
 #panel {
   padding: 10px;
+  overflow-y: scroll;
 }
 
