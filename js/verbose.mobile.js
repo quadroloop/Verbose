@@ -45,6 +45,7 @@ function kernel(item) {
   	    toggle_widgets();
   	break;
   	case 'sbar' :
+        backtosearch();
   	    toggle_widgets();
   	break;
   }
@@ -184,6 +185,11 @@ function switchScr() {
 	setTimeout('document.getElementById("results").style.display="none"',300);
 	setTimeout('document.getElementById("results").classList.remove("w3-card-4");',700);
 	setTimeout('document.getElementById("results").classList.remove("hide-left");',700);
+}
+
+function backtosearch() {
+  document.getElementById('panel').style.display = "none";
+  document.getElementById('search').click();
 }
 
 
