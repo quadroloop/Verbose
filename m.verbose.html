@@ -11,6 +11,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 </head>
 <body>
+       <a id="qr" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);" ><i class="fa fa-qrcode fa-2x icon-item"></i></a>
+      <a id="preferences" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);" ><i class="fa fa-bars fa-2x icon-item"></i></a>
+      <a id="sbar" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);"><i class="fa fa-search fa-2x icon-item"></i></a>
+      <a id="verbose" class="animated bounceIn" onclick="menu(this);"><img src="./img/verbose-icon.png" class="icon" ></a>
+   
  <div id="panel" class="animated"></div>
  <div id="loader">
        <center>
@@ -38,12 +43,6 @@
        <input id="search" onkeyup="searchMode();" class="w3-input w3-border w3-round w3-card-2" placeholder="Search Verbose..">
    </div>
    <div id="results" class="animated w3-white" onclick="switchScr();"></div>
-   <div class="w3-bottom">
-       <a id="qr" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);" ><i class="fa fa-qrcode fa-2x icon-item"></i></a>
-      <a id="preferences" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);" ><i class="fa fa-bars fa-2x icon-item"></i></a>
-      <a id="sbar" class="animated bounceIn" onmouseover="menu(this);" onmouseout="clickReset(this);"><i class="fa fa-search fa-2x icon-item"></i></a>
-      <a id="verbose" class="animated bounceIn" onclick="menu(this);"><img src="./img/verbose-icon.png" class="icon" ></a>
-   </div>
 </body>
 <script src="./js/verbose.mobile.js"></script>
 </html>
